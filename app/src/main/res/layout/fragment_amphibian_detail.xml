@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- data tag used to bind data inside the view elements and
+    files will be automatically generated, which holds binding references for your XML -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.amphibians.ui.AmphibianViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Set the text to the name from the single Amphibian object in the view model -->
+        <TextView
+            android:id="@+id/name"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@{viewModel.amphibian.name}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Blue Jeans Frog"/>
+
+        <!-- displays the divider -->
+        <View
+            android:layout_width="match_parent"
+            android:shadowColor="@color/black"
+            android:layout_height="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/dividerHorizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name"/>
+
+        <!-- Set the text to the description from the Amphibian object in the view model -->
+        <TextView
+            android:id="@+id/description"
+            android:textSize="30sp"
+            android:fontFamily="cursive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            tools:text="Bright red body, blue legs"
+            android:text="@{viewModel.amphibian.description}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
